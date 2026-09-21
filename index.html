@@ -36,6 +36,9 @@
     .product-image span { font-size: 12px; color: #777; }
     .product-image img { display: block; width: 100%; height: 100%; object-fit: cover; }
     .product-card h2 { margin: 15px 0 10px; font-size: 16px; font-weight: 500; overflow-wrap: anywhere; }
+    .catalog-back { margin-top: 40px; text-align: center; }
+    .back-home { display: inline-block; padding: 11px 22px; border: 1px solid var(--border); border-radius: 5px; background: #fff; color: var(--text); font-size: 14px; text-decoration: none; }
+    .back-home:hover { border-color: var(--text); }
     .prices { margin: 0; font-size: 13px; }
     .price-row { display: flex; justify-content: space-between; gap: 8px; margin-top: 4px; }
     .price-row dt { color: var(--muted); }
@@ -90,6 +93,9 @@
           <p id="product-count"></p>
         </div>
         <div id="product-grid" class="product-grid"></div>
+        <div class="catalog-back">
+          <a class="back-home" href="#home" onclick="window.scrollTo(0, 0)">← Вернуться на главную</a>
+        </div>
       </section>
       <noscript><p>Для переключения категорий включите JavaScript в настройках браузера.</p></noscript>
     </main>
