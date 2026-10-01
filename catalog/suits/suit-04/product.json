@@ -1,1 +1,9 @@
-catalog/suits/suit-04/product.json
+{
+  "name": "Костюм 04",
+  "retail_price": null,
+  "wholesale_price": null,
+  "sizes": [],
+  "color": "",
+  "order": 4,
+  "hidden": false
+}
