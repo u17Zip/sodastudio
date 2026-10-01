@@ -2,7 +2,7 @@
   "name": "Костюм 01",
   "retail_price": 15000,
   "wholesale_price": 11000,
-  "sizes": [ xs ],
+  "sizes": [ 42 ],
   "color": "тёмно синий",
   "order": 1,
   "hidden": false
