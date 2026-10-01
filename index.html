@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Soda Studio — каталог одежды. Розничные и оптовые цены.">
+  <title>Soda Studio — каталог одежды</title>
+  <link rel="stylesheet" href="assets/style.css">
+  <script src="assets/app.js" defer></script>
+</head>
+<body>
+  <a class="skip" href="#main">Перейти к содержимому</a>
+  <header><nav class="container navigation" id="navigation" aria-label="Категории одежды"><a href="#home" aria-current="page">Главная</a></nav></header>
+  <main id="main" class="container" tabindex="-1">
+    <p id="status" role="status">Загружаем каталог…</p>
+    <section id="home" hidden>
+      <p class="eyebrow">Каталог одежды</p>
+      <h1 id="brand-name">Soda Studio</h1>
+      <p class="description" id="brand-description"></p>
+      <p class="home-note">Выберите категорию в меню, чтобы посмотреть одежду, размеры и цены.</p>
+    </section>
+    <section id="category" hidden aria-labelledby="category-title">
+      <div class="catalog-heading"><h1 id="category-title"></h1><p id="count"></p></div>
+      <div class="product-grid" id="products"></div>
+      <div class="catalog-back"><a class="button" id="back-home" href="#home">← Вернуться на главную</a></div>
+    </section>
+    <noscript>Для просмотра каталога включите JavaScript в браузере.</noscript>
+  </main>
+  <footer>
+    <div class="container">
+      <div class="footer-grid">
+        <section><h2>Контакты</h2><div id="phone"></div></section>
+        <section><h2>Социальные сети</h2><div id="socials" class="socials"></div></section>
+        <section><h2>Адреса</h2><div id="addresses"></div></section>
+      </div>
+      <p class="copyright" id="copyright">Soda Studio</p>
+    </div>
+  </footer>
+</body>
+</html>
