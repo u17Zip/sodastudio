@@ -1,9 +1,9 @@
 {
   "name": "Костюм 04",
-  "retail_price": null,
-  "wholesale_price": null,
-  "sizes": [],
-  "color": "",
+  "retail_price": 18000,
+  "wholesale_price": 12000,
+  "sizes": ["xs", "xl", "l"],
+  "color": "серый",
   "order": 4,
   "hidden": false
 }
