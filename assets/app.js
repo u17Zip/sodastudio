@@ -36,6 +36,63 @@ function productCard(product) {
   showPhoto();
   card.append(photo);
   if (product.images.length > 1) {
+        // Свайпы по фотографии; вертикальная прокрутка и масштабирование доступны.
+    photo.style.touchAction = 'pan-y pinch-zoom';
+
+    let swipe = null;
+    const resetSwipe = () => { swipe = null; };
+
+    photo.addEventListener('pointerdown', event => {
+      if (!event.isPrimary) {
+        resetSwipe();
+        return;
+      }
+
+      if (event.pointerType !== 'touch' &&
+          event.pointerType !== 'pen') return;
+
+      swipe = {
+        id: event.pointerId,
+        x: event.clientX,
+        y: event.clientY
+      };
+
+      photo.setPointerCapture(event.pointerId);
+    });
+
+    photo.addEventListener('pointermove', event => {
+      if (!swipe || swipe.id !== event.pointerId) return;
+
+      const dx = event.clientX - swipe.x;
+      const dy = event.clientY - swipe.y;
+
+      // Если пользователь прокручивает страницу, отменяем листание.
+      if (Math.abs(dy) > 15 && Math.abs(dy) > Math.abs(dx)) {
+        resetSwipe();
+      }
+    });
+
+    photo.addEventListener('pointerup', event => {
+      if (!swipe || swipe.id !== event.pointerId) return;
+
+      const dx = event.clientX - swipe.x;
+      const dy = event.clientY - swipe.y;
+      resetSwipe();
+
+      // Короткие касания и диагональные движения не переключают фото.
+      if (Math.abs(dx) < 40 ||
+          Math.abs(dx) <= Math.abs(dy) * 1.25) return;
+
+      const direction = dx < 0 ? 1 : -1;
+      current = (
+        current + direction + product.images.length
+      ) % product.images.length;
+
+      showPhoto();
+    });
+
+    photo.addEventListener('pointercancel', resetSwipe);
+    photo.addEventListener('lostpointercapture', resetSwipe);
     const controls = node('div', 'photo-controls');
     const previous = node('button', '', '←');
     const next = node('button', '', '→');
